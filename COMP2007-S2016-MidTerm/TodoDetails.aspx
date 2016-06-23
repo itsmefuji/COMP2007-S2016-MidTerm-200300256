@@ -5,6 +5,7 @@
         <div class="row">
             <div class="col-md-offset-3 col-md-6">
                 <h1>ToDo Details</h1>
+                <h5>All Fields are Required*</h5>
                 <div class="form-group">
                     <label class="control-label" for="TodoNameTextBox">Todo Name</label>
                     <asp:TextBox runat="server" CssClass="form-control" ID="TodoNameTextBox" placeholder="Todo Name" required="true"></asp:TextBox>
