@@ -13,5 +13,15 @@ namespace COMP2007_S2016_MidTerm
         {
             
         }
+
+        protected void SaveButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void CancelButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
