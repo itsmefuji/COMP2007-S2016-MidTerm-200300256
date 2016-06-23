@@ -19,7 +19,7 @@ namespace COMP2007_S2016_MidTerm
         {
             if (!IsPostBack)
             {
-                Session["SortColumn"] = "TodoID"; // default sort column
+                Session["SortColumn"] = "TodoID"; // Default Sory Column
                 Session["SortDirection"] = "ASC"; // Ascending Order
 
                 this.GetTodos();
@@ -93,24 +93,38 @@ namespace COMP2007_S2016_MidTerm
         {
             if (IsPostBack)
             {
+                // SEE WHAT HEADER IS BEING CLICKED
                 if (e.Row.RowType == DataControlRowType.Header)
                 {
                     LinkButton linkbutton = new LinkButton();
+
                     for (int index = 0; index < TodoGridView.Columns.Count - 1; index++)
                     {
-                        if (Session["SortDirection"].ToString() == "ASC")
+                        if (TodoGridView.Columns[index].SortExpression == Session["SortColumn"].ToString())
                         {
-                            linkbutton.Text = " <i class='fa fa-caret-up fa-lg'></i>";
-                        }
-                        else
-                        {
-                            linkbutton.Text = " <i class='fa fa-caret-down fa-lg'></i>";
-                        }
+                            if (Session["SortDirection"].ToString() == "ASC")
+                            {
+                                linkbutton.Text = " <i class='fa fa-caret-up fa-sm'></i>";
+                            }
+                            else
+                            {
+                                linkbutton.Text = " <i class='fa fa-caret-down fa-sm'></i>";
+                            }
 
-                        e.Row.Cells[index].Controls.Add(linkbutton);
+                            e.Row.Cells[index].Controls.Add(linkbutton);
+                        }
                     }
                 }
             }
+        }
+
+        protected void PageSizeDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Set the new Page size
+            TodoGridView.PageSize = Convert.ToInt32(PageSizeDropDownList.SelectedValue);
+
+            // refresh the grid
+            this.GetTodos();
         }
     }
 }
