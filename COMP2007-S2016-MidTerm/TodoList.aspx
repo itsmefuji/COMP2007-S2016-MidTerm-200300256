@@ -22,7 +22,6 @@
                     <Columns>
                         <asp:BoundField DataField="TodoName" HeaderText="Todo Name" Visible="true" SortExpression="TodoName" />
                         <asp:BoundField DataField="TodoNotes" HeaderText="Todo Notes" Visible="true" SortExpression="TodoNotes" />
-                        <!-- I tried my best with the checkboxes, however I could not sort them by order of completion -->
                         <asp:TemplateField HeaderText="Completed" Visible="true" SortExpression="Completed">
                             <ItemTemplate>
                                 <asp:CheckBox DataField="Completed" runat="server" Enabled="true" />
